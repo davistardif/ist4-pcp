@@ -27,14 +27,29 @@ def possible_dedupes(s):
                 dedupes.add(s[:offset] + s[offset+dist:])
     return list(dedupes)
 
+min_dist = sys.maxsize # start with infinity as min_dist
+def dedupe_recursive(s, seed, depth = 0):
+    global min_dist
+    if (s == seed):
+        if depth < min_dist:
+            min_dist = depth
+        return
+    if (depth > min_dist):
+        return
+    dedupes = possible_dedupes(s)
+    dedupes.sort(key=len) # order our options by shortest next string
+    for option in dedupes:
+        dedupe_recursive(option, seed, depth + 1)
+            
+
 def solve(s):
     n = 0
     '''this is the template solve function. please place your code here
     it should return an integer with value n which maps to the number
     of steps it takes to get to the initial string'''
     seed = get_seed(s)
-    # TODO
-    return n
+    dedupe_recursive(s, seed, 0)
+    return min_dist
 
 if __name__ == "__main__":
     if len(sys.argv) < 2: 
