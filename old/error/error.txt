@@ -1,0 +1,52 @@
+part (f)(i)
+Is {101,111} a single deletion correcting code?
+checking ['101', '111']:
+-deletion of (0, 0) th entries ['01', '11']
+-deletion of (0, 1) th entries ['01', '11']
+-deletion of (0, 2) th entries ['01', '11']
+-deletion of (1, 0) th entries ['11', '11']
+False
+Is {000,101} a single deletion correcting code?
+checking ['000', '101']:
+-deletion of (0, 0) th entries ['00', '01']
+-deletion of (0, 1) th entries ['00', '11']
+-deletion of (0, 2) th entries ['00', '10']
+-deletion of (1, 0) th entries ['00', '01']
+-deletion of (1, 1) th entries ['00', '11']
+-deletion of (1, 2) th entries ['00', '10']
+-deletion of (2, 0) th entries ['00', '01']
+-deletion of (2, 1) th entries ['00', '11']
+-deletion of (2, 2) th entries ['00', '10']
+True
+Is there a length 3 code with more than 2 codewords?
+checking ['101', '110', '111']:
+-deletion of (0, 0, 0) th entries ['01', '10', '11']
+-deletion of (0, 0, 1) th entries ['01', '10', '11']
+-deletion of (0, 0, 2) th entries ['01', '10', '11']
+-deletion of (0, 1, 0) th entries ['01', '10', '11']
+-deletion of (0, 1, 1) th entries ['01', '10', '11']
+-deletion of (0, 1, 2) th entries ['01', '10', '11']
+-deletion of (0, 2, 0) th entries ['01', '11', '11']
+False
+
+
+
+part (f)(ii)
+Is {0000,0110,1010} a single deletion correcting code?
+checking ['0000', '0110', '1010']:
+-deletion of (0, 0, 0) th entries ['000', '110', '010']
+-deletion of (0, 0, 1) th entries ['000', '110', '110']
+False
+Is there a single deletion correcting code of length 4 with 4 codewords?
+False
+(done computationally, the full computation will not be printed)
+
+
+
+part (f)(iii)
+Is {00000,10001,01010,11100,00111} a single deletion correcting code?
+True
+(done computationally, the full computation will not be printed)
+Is there a single deletion correcting code of length 5 with 6 codewords?
+False
+(done computationally, the full computation will not be printed)
