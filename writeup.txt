@@ -1,0 +1,9 @@
+In this programming challenge project, our group employed three central strategies to optimize the calculation of the minimum deduplication distance.
+
+Rather than starting with the duplication seed and searching upwards through a tree of successive duplications to find the shortest path to the resultant string, we decided to start with the resultant string, and search through a tree of deduplications to find reach the shortest path to the seed. If our tree were to work from the seed up, then it would have to check duplications which would never reach the target string, however if we worked from the target string down, then every series of deduplications would eventually lead to a seed, even if it was not the fastest path. 
+
+Next, when checking through possible deduplications, we prioritized checking deduplications that removed the most characters possible. This way, paths in which large strings were reduced by a series of small deduplications would be checked last, and this is better because smaller deduplications are less likely to yield a smaller deduplication distance.
+
+By the nature of the problem, it was obvious that a breadth first search had to be employed, as a depth first would have to check every branch, even if it found the solution earlier, in order to check that it was in fact the solution.
+
+There are some weaknesses to this algorithm. If the fastest deduplication path start with a series of very small deduplications, then the algorithm will take longer. Also, while the sorting of deduplications by size often speeds up the process, sorting does take some time. There weren't many rules for cutting off big branches early, by general arguments, and our process probably could have benefited from a few clever tricks that somehow could have done that. All in all though, our algorithm worked reasonably.
